@@ -1,0 +1,31 @@
+# This is a very useful piece of software
+
+FUN oopify(prefix) -> prefix + "oop"
+
+FUN join(elements, separator)
+	VAR result = ""
+	VAR len = LEN(elements)
+
+	KANGGO i = 0 MENYANG len BANJUR
+		VAR result = result + elements/i
+		YEN i != len - 1 BANJUR VAR result = result + separator
+	RAMPUNG
+
+	BALIK result
+RAMPUNG
+
+FUN map(elements, func)
+	VAR new_elements = []
+
+	KANGGO i = 0 MENYANG LEN(elements) BANJUR
+		APPEND(new_elements, func(elements/i))
+	RAMPUNG
+
+	BALIK new_elements
+RAMPUNG
+
+PRINT("Greetings universe!")
+
+KANGGO i = 0 MENYANG 5 BANJUR
+	PRINT(join(map(["l", "sp"], oopify), ", "))
+RAMPUNG
